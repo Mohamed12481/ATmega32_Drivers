@@ -7,13 +7,14 @@
  *
  * */
 
-#include "../../LIB/STD_TYPES.h"
-#include "../../LIB/BIT_MATH.h"
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
 
 #include "DIO_interface.h"
 #include "DIO_private.h"
 #include "DIO_config.h"
 #include <stdio.h>
+
 
 DIO_ErrorStatus DIO_enumSetPinDirection(u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Direction)
 {
