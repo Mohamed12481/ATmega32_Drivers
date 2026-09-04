@@ -14,9 +14,9 @@
 
 /*    Group A      */
 
-#define PORTA *((volatile u8*) 0x3B)
-#define DDRA  *((volatile u8*) 0x3A)
-#define PINA  *((volatile u8*) 0x39)
+#define PORTA *((volatile u8*) 0x3B)  // make pin high or low
+#define DDRA  *((volatile u8*) 0x3A)  // input or output, input = 0, output = 1
+#define PINA  *((volatile u8*) 0x39)  // read only
 
 /*    Group B      */
 
