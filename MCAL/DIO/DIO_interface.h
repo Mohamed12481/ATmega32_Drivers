@@ -12,12 +12,26 @@
 #ifndef _DIO_INTERFACE_H_
 #define _DIO_INTERFACE_H_
 
+typedef enum
+{
+    DIO_NOK,
+    DIO_OK
+
+} DIO_ErrorStatus;
+
+
 #define DIO_PIN_OUTPUT 1
 #define DIO_PIN_INPUT 0
 
 
 #define DIO_PIN_HIGH 1
 #define DIO_PIN_LOW 0
+
+#define DIO_PORT_OUTPUT 0xff
+#define DIO_PORT_INPUT 0
+
+#define DIO_PORT_HIGH 0xff
+#define DIO_PORT_LoW 0
 
 
 #define DIO_PORTA 0
@@ -34,11 +48,13 @@
 #define DIO_PIN6 6
 #define DIO_PIN7 7
 
-void DIO_voidSetPinDirection(u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Direction);
-void DIO_voidSetPinValue    (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Value);
-u8   DIO_u8GetPinValue      (u8 Copy_u8PORT, u8 Copy_u8PIN);
-void DIO_voidTogglePinValue (u8 Copy_u8PORT, u8 Copy_u8PIN);
+DIO_ErrorStatus DIO_enumGetPinValue     (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 *Copy_PtrData);
+DIO_ErrorStatus DIO_enumSetPinDirectoin (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Direction);
+DIO_ErrorStatus DIO_enumSetPinValue     (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Value);
+DIO_ErrorStatus DIO_enumTogglePinValue  (u8 Copy_u8PORT, u8 Copy_u8PIN);
 
+DIO_ErrorStatus DIO_enumSetPortDirection(u8 Copy_u8PORT, u8 Copy_u8Direction);
+DIO_ErrorStatus DIO_enumSetPortValue    (u8 Copy_u8PORT, u8 Copy_u8Value);
 
 
 
