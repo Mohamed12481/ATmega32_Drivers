@@ -49,7 +49,7 @@ typedef enum
 #define DIO_PIN7 7
 
 DIO_ErrorStatus DIO_enumGetPinValue     (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 *Copy_PtrData);
-DIO_ErrorStatus DIO_enumSetPinDirectoin (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Direction);
+DIO_ErrorStatus DIO_enumSetPinDirection (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Direction);
 DIO_ErrorStatus DIO_enumSetPinValue     (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Value);
 DIO_ErrorStatus DIO_enumTogglePinValue  (u8 Copy_u8PORT, u8 Copy_u8PIN);
 

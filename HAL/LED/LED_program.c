@@ -3,7 +3,7 @@
 *
 *   Author   : Mohamed omar
 *   layer    : HAL
-*
+*   SWC      : LED
 *
 */
 
@@ -18,7 +18,7 @@
 
 void LED_voidInit(LED_Type LED_Configuration)
 {
-    DIO_enumSetPinDirectoin(LED_Configuration.Port, LED_Configuration.Pin, DIO_PIN_OUTPUT);
+    DIO_enumSetPinDirection(LED_Configuration.Port, LED_Configuration.Pin, DIO_PIN_OUTPUT);
 }
 
 
