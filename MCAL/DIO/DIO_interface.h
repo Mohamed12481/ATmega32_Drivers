@@ -48,14 +48,23 @@ typedef enum
 #define DIO_PIN6 6
 #define DIO_PIN7 7
 
+
+// IO Pins
 DIO_ErrorStatus DIO_enumGetPinValue     (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 *Copy_PtrData);
 DIO_ErrorStatus DIO_enumSetPinDirection (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Direction);
 DIO_ErrorStatus DIO_enumSetPinValue     (u8 Copy_u8PORT, u8 Copy_u8PIN, u8 Copy_u8Value);
 DIO_ErrorStatus DIO_enumTogglePinValue  (u8 Copy_u8PORT, u8 Copy_u8PIN);
 
+
+// IO Ports
 DIO_ErrorStatus DIO_enumSetPortDirection(u8 Copy_u8PORT, u8 Copy_u8Direction);
 DIO_ErrorStatus DIO_enumSetPortValue    (u8 Copy_u8PORT, u8 Copy_u8Value);
+DIO_ErrorStatus DIO_enumGetPortValue    (u8 Copy_u8PORT, u8 *Copy_PtrData);
+DIO_ErrorStatus DIO_enumTogglePortValue (u8 Copy_u8PORT);
 
+
+DIO_ErrorStatus DIO_enumWriteHighNibble(u8 Copy_u8PORT, u8 Copy_u8value);
+DIO_ErrorStatus DIO_enumWriteLowNibble (u8 Copy_u8PORT, u8 Copy_u8value);
 
 
 

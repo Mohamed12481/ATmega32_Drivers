@@ -184,3 +184,140 @@ DIO_ErrorStatus DIO_enumSetPortValue(u8 Copy_u8PORT, u8 Copy_u8Value)
 
     return LOC_enumState;
 }
+
+
+DIO_ErrorStatus DIO_enumGetPortValue    (u8 Copy_u8PORT, u8 *Copy_PtrData)
+{
+    DIO_ErrorStatus LOC_enumState = DIO_OK;
+
+    if(Copy_u8PORT <= DIO_PORTD)
+    {
+        switch(Copy_u8PORT)
+        {
+            case DIO_PORTA: *Copy_PtrData = PINA;
+            case DIO_PORTC: *Copy_PtrData = PINB;
+            case DIO_PORTB: *Copy_PtrData = PINC;
+            case DIO_PORTD: *Copy_PtrData = PIND;
+            default: LOC_enumState = DIO_NOK;
+            break;
+        }
+    }
+    else
+    {
+        LOC_enumState = DIO_NOK;
+    }
+
+    return LOC_enumState;
+}
+
+
+DIO_ErrorStatus DIO_enumTogglePortValue (u8 Copy_u8PORT)
+{
+    DIO_ErrorStatus LOC_State = DIO_OK;
+
+    if(Copy_u8PORT <= DIO_PORTD)
+    {
+        switch(Copy_u8PORT)
+        {
+            case DIO_PORTA: PORTA = ~PORTA; break;
+            case DIO_PORTB: PORTB = ~PORTB; break;
+            case DIO_PORTC: PORTC = ~PORTC; break;
+            case DIO_PORTD: PORTD = ~PORTD; break;
+            default: LOC_State = DIO_NOK;
+            break;
+        }
+    }
+    else
+    {
+        LOC_State = DIO_NOK;
+    }
+    return LOC_State;
+}
+
+
+
+
+DIO_ErrorStatus DIO_enumWriteHighNibble(u8 Copy_u8PORT, u8 Copy_u8value)
+{
+    DIO_ErrorStatus LOC_State = DIO_OK;
+
+    if (Copy_u8PORT <= DIO_PORTD)
+    {
+        Copy_u8value = (Copy_u8value << 4);
+        switch(Copy_u8PORT)
+        {
+            case DIO_PORTA: 
+                PORTA &= 0x0f;
+                PORTA |= Copy_u8value;
+                break;
+
+            case DIO_PORTB: 
+                PORTB &= 0x0f;
+                PORTB |= Copy_u8value;
+                break;
+
+            case DIO_PORTC: 
+                PORTC &= 0x0f;
+                PORTC |= Copy_u8value;
+                break;
+
+            case DIO_PORTD: 
+                PORTD &= 0x0f;
+                PORTD |= Copy_u8value;
+                break;
+
+            default: LOC_State = DIO_NOK; 
+            break;
+        }
+        
+    }
+    else
+    {
+        LOC_State = DIO_NOK;
+    }
+    
+    return LOC_State;
+}
+
+
+DIO_ErrorStatus DIO_enumWriteLowNibble (u8 Copy_u8PORT, u8 Copy_u8value)
+{
+    DIO_ErrorStatus LOC_State = DIO_OK;
+
+    if (Copy_u8PORT <= DIO_PORTD)
+    {
+        Copy_u8PORT &= 0x0f;
+        switch(Copy_u8PORT)
+        {
+            case DIO_PORTA:
+                PORTA &= 0xf0;
+                PORTA |= Copy_u8value;
+                break;
+
+            case DIO_PORTB:
+                PORTB &= 0xf0;
+                PORTB |= Copy_u8value;
+                break;
+
+            case DIO_PORTC:
+                PORTC &= 0xf0;
+                PORTC |= Copy_u8value;
+                break;
+
+            case DIO_PORTD:
+                PORTD &= 0xf0;
+                PORTD |= Copy_u8value;
+                break;
+
+            default: LOC_State = DIO_NOK;
+            break;
+        }
+        
+    }
+    else
+    {
+        LOC_State = DIO_NOK;
+    }
+    
+    return LOC_State;
+}
