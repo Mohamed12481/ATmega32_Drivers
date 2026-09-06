@@ -38,7 +38,7 @@ void LED_voidOff(LED_Type LED_Configuration)
 {
     if(LED_Configuration.Active_State == ACTIVE_HIGH)
         {
-            DIO_enumSetPinValue(LED_Configuration.Port, LED_Configuration.Port, DIO_PIN_LOW);
+            DIO_enumSetPinValue(LED_Configuration.Port, LED_Configuration.Pin, DIO_PIN_LOW);
         }
         else if(LED_Configuration.Active_State == ACTIVE_LOW)
             {
